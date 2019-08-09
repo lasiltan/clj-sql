@@ -84,7 +84,7 @@
                                       (map ->sql)
                                       (string/join ",")))))
 
-(deftype Order [field-defs]
+(deftype OrderBy [field-defs]
   Sql
   (->sql [this] (->> field-defs
                      (map #(->> (map ->sql %)
@@ -150,12 +150,12 @@
   [& fields]
   (->GroupBy fields))
 
-(defn order
+(defn order-by
   "The argument is list of field definitions in the form of `[field direction]`
    Examples: [[:id :desc]] -> ORDER BY id desc
              [[:id] [:title :desc]] -> ORDER BY id, title desc"
   [fields]
-  (->Order fields))
+  (->OrderBy fields))
 
 (defn sub
   "Sub query, encloses in parentheses.

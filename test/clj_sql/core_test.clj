@@ -93,4 +93,4 @@
                           (q/where (q/and (q/is [:is-not-null :p.title])
                                           (q/or (q/is [:in :p.category_id [1 2 3]])
                                                 (q/is [:= :p.category_id 6]))))
-                          (q/order [[:p.id :desc]]))))))
+                          (q/order-by [[:p.id :desc]]))))))
